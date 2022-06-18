@@ -1,8 +1,8 @@
-<div>{name}</div>
+<div>{{ name }}</div>
 <div>
   <div ngClass="screen"></div>
   <button (click)="(onRecClick)">Rec</button>
+  {{ this.recS }}
 </div>
 
 <audio *ngFor="let audio of audioFiles" controls="true" [src]="audio"></audio>
-

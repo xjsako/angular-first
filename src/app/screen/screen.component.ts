@@ -1,5 +1,6 @@
 import {
   Component,
+  Input,
   OnInit,
   ViewChild,
   ElementRef,
@@ -15,13 +16,15 @@ declare var MediaRecorder: any;
   styleUrls: ['./screen.component.css'],
 })
 export class ScreenComponent implements OnInit {
+  @Input() name: string;
+
   recS: boolean = false;
   mediaRecorder: any;
   chunks = [];
   audioFiles = [];
   constructor(private cd: ChangeDetectorRef, private dom: DomSanitizer) {}
   ngOnInit() {
-    navigator.getUserMedia(
+    navigator['getUserMedia'](
       { audio: true },
       (stream) => {
         console.log(stream);
@@ -66,14 +69,17 @@ export class ScreenComponent implements OnInit {
     );
   }
   onRecClick() {
+    alert(0);
     if (this.recS) {
-      this.mediaRecorder.stop();
+      alert(1);
       this.recS = false;
+      this.mediaRecorder.stop();
       console.log(this.mediaRecorder.state);
       console.log('recorder stopped');
     } else {
-      this.mediaRecorder.start();
+      alert(2);
       this.recS = true;
+      this.mediaRecorder.start();
       console.log(this.mediaRecorder.state);
       console.log('recorder started');
     }
