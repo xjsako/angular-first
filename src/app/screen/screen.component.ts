@@ -69,15 +69,12 @@ export class ScreenComponent implements OnInit {
     );
   }
   onRecClick() {
-    alert(0);
     if (this.recS) {
-      alert(1);
       this.recS = false;
       this.mediaRecorder.stop();
       console.log(this.mediaRecorder.state);
       console.log('recorder stopped');
     } else {
-      alert(2);
       this.recS = true;
       this.mediaRecorder.start();
       console.log(this.mediaRecorder.state);
